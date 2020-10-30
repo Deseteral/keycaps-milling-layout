@@ -35,15 +35,15 @@ function calculate() {
 }
 
 function rerender({ materialWidth, materialHeight, keys }) {
-  const SCALE = 4;
+  const RENDER_SCALE = 4;
 
   // clear
   const tileContainer = document.querySelector('#container');
   tileContainer.innerHTML = '';
 
   // set material size
-  tileContainer.style.width = `${materialWidth * SCALE}px`;
-  tileContainer.style.height = `${materialHeight * SCALE}px`;
+  tileContainer.style.width = `${materialWidth * RENDER_SCALE}px`;
+  tileContainer.style.height = `${materialHeight * RENDER_SCALE}px`;
 
   document.querySelector('#materialHeight').innerHTML = `${materialWidth} mm`;
   document.querySelector('#materialWidth').innerHTML = `${materialHeight} mm`;
@@ -55,10 +55,10 @@ function rerender({ materialWidth, materialHeight, keys }) {
 
     el.addEventListener('click', (ev) => ev.target.closest('.tile').classList.toggle('active'));
 
-    el.style.left = `${(key.x - (key.size / 2)) * SCALE}px`;
-    el.style.top = `${(materialHeight - (key.y - (key.size / 2)) - key.size) * SCALE}px`;
-    el.style.width = `${key.size * SCALE}px`;
-    el.style.height = `${key.size * SCALE}px`;
+    el.style.left = `${(key.x - (key.size / 2)) * RENDER_SCALE}px`;
+    el.style.top = `${(materialHeight - (key.y - (key.size / 2)) - key.size) * RENDER_SCALE}px`;
+    el.style.width = `${key.size * RENDER_SCALE}px`;
+    el.style.height = `${key.size * RENDER_SCALE}px`;
 
     el.innerHTML = `<div>X ${key.x}</div><div>Y ${key.y}</div>`;
 
