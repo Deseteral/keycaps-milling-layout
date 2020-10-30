@@ -16,8 +16,8 @@ function calculate() {
 
   for (let y = 0; y < yCount; y += 1) {
     for (let x = 0; x < xCount; x += 1) {
-      const posX = (x * (keycapSize + spaceBetween)) + spaceFromX;
-      const posY = (y * (keycapSize + spaceBetween)) + spaceFromY;
+      const posX = (spaceFromX + (keycapSize / 2)) + (x * (keycapSize + spaceBetween));
+      const posY = (spaceFromY + (keycapSize / 2)) + (y * (keycapSize + spaceBetween));
 
       keys.push({
         x: posX,
@@ -55,8 +55,8 @@ function rerender({ materialWidth, materialHeight, keys }) {
 
     el.addEventListener('click', (ev) => ev.target.closest('.tile').classList.toggle('active'));
 
-    el.style.left = `${key.x * SCALE}px`;
-    el.style.top = `${(materialHeight - key.y - key.size) * SCALE}px`;
+    el.style.left = `${(key.x - (key.size / 2)) * SCALE}px`;
+    el.style.top = `${(materialHeight - (key.y - (key.size / 2)) - key.size) * SCALE}px`;
     el.style.width = `${key.size * SCALE}px`;
     el.style.height = `${key.size * SCALE}px`;
 
