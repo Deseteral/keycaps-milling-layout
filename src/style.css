@@ -17,6 +17,12 @@ body {
   align-items: center;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+}
+
 label {
   margin-right: 4px;
 }
@@ -76,7 +82,7 @@ button {
   border: 1px solid black;
   border-radius: 4px;
   font-family: monospace;
-  font-size: 18px;
+  font-size: 17px;
   padding: 4px;
   background-color: lightgray;
   cursor: pointer;

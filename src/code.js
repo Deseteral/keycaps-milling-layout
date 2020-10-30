@@ -6,6 +6,7 @@ function calculate() {
   });
 
   const { xCount, yCount, keycapSize, spaceBetween, spaceFromX, spaceFromY } = values;
+  const basePosition = document.querySelector('input[name="basePosition"]:checked').value;
 
   // calculate material size
   const materialWidth = (xCount * keycapSize) + ((xCount - 1) * spaceBetween) + (2 * spaceFromX);
@@ -14,14 +15,22 @@ function calculate() {
   // calculate key positions
   const keys = [];
 
+  const materialCenterX = (materialWidth / 2);
+  const materialCenterY = (materialHeight / 2);
+
   for (let y = 0; y < yCount; y += 1) {
     for (let x = 0; x < xCount; x += 1) {
       const posX = (spaceFromX + (keycapSize / 2)) + (x * (keycapSize + spaceBetween));
       const posY = (spaceFromY + (keycapSize / 2)) + (y * (keycapSize + spaceBetween));
 
+      const fromCenterX = (posX - materialCenterX);
+      const fromCenterY = (posY - materialCenterY);
+
       keys.push({
         x: posX,
         y: posY,
+        fromCenterX,
+        fromCenterY,
         size: keycapSize,
       });
     }
@@ -30,11 +39,12 @@ function calculate() {
   return {
     materialWidth,
     materialHeight,
+    basePosition,
     keys,
   };
 }
 
-function rerender({ materialWidth, materialHeight, keys }) {
+function rerender({ materialWidth, materialHeight, basePosition, keys }) {
   const RENDER_SCALE = 4;
 
   // clear
@@ -60,7 +70,9 @@ function rerender({ materialWidth, materialHeight, keys }) {
     el.style.width = `${key.size * RENDER_SCALE}px`;
     el.style.height = `${key.size * RENDER_SCALE}px`;
 
-    el.innerHTML = `<div>X ${key.x}</div><div>Y ${key.y}</div>`;
+    const valX = (basePosition === 'center') ? key.fromCenterX : key.x;
+    const valY = (basePosition === 'center') ? key.fromCenterY : key.y;
+    el.innerHTML = `<div>X ${valX}</div><div>Y ${valY}</div>`;
 
     tileContainer.appendChild(el);
   });

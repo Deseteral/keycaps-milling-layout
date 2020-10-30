@@ -39,7 +39,7 @@
     <div class="group">
       <div class="row">
         <label for="spaceFromX">Odstęp od punktu bazowego w osi X:</label>
-        <input type="number" id="spaceFromX" value="4">
+        <input type="number" id="spaceFromX" value="19">
         <span>mm</span>
       </div>
 
@@ -47,6 +47,20 @@
         <label for="spaceFromY">Odstęp od punktu bazowego w osi Y:</label>
         <input type="number" id="spaceFromY" value="4">
         <span>mm</span>
+      </div>
+
+      <div class="column">
+        <div>Położenie punktu bazowego:</div>
+
+        <div>
+          <input type="radio" name="basePosition" id="center" value="center" checked>
+          <label for="center">Od środka materiału</label>
+        </div>
+
+        <div>
+          <input type="radio" name="basePosition" id="bottom-left" value="bottom-left">
+          <label for="bottom-left">Od lewego-dolnego rogu</label>
+        </div>
       </div>
     </div>
 
