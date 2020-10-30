@@ -1,0 +1,68 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Keycap milling layout</title>
+  <meta charset="utf-8">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="form">
+    <div class="group">
+      <div class="row">
+        <label for="xCount">Ilość w rzędzie:</label>
+        <input type="number" id="xCount" value="13">
+      </div>
+
+      <div class="row">
+        <label for="yCount">Ilość rzędów:</label>
+        <input type="number" id="yCount" value="4">
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="row">
+        <label for="keycapSize">Wymiar keycapa:</label>
+        <input type="number" id="keycapSize" value="18">
+        <span>mm</span>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="row">
+        <label for="spaceBetween">Odstęp pomiędzy:</label>
+        <input type="number" id="spaceBetween" value="4">
+        <span>mm</span>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="row">
+        <label for="spaceFromX">Odstęp od punktu bazowego w osi X:</label>
+        <input type="number" id="spaceFromX" value="4">
+        <span>mm</span>
+      </div>
+
+      <div class="row">
+        <label for="spaceFromY">Odstęp od punktu bazowego w osi Y:</label>
+        <input type="number" id="spaceFromY" value="4">
+        <span>mm</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <button type="button" id="generate">Generuj</button>
+    </div>
+  </div>
+
+  <div class="container-column">
+    <div class="container-row">
+      <div id="container"></div>
+      <div id="materialWidth"></div>
+    </div>
+    <div id="materialHeight"></div>
+  </div>
+
+  <script src="code.js"></script>
+</body>
+</html>
